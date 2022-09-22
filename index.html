@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Just+Another+Hand&display=swap'>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+  
+  <script src='vendor/opencv.js'></script>
+
+  <script src='canvas-drawing.js'></script>
+  <script src='predictor.js'></script>
+  <script src='validator.js'></script>
+
+  
+  <style>
+input[type=text],input[type=number],input[type=email],input[type=password], select {
+  width: 50%;
+  padding: 6px 8px;
+  margin: 2px 0;
+  display: inline-block;
+  border: 2px solid #B5B4B4;
+  background: #e8e8e8;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+label{
+ font-family: Poppins;
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height:10px;
+margin-top :8px;
+color: #735A5A;
+}
+
+body {
+font-family: 'Just Another Hand', cursive;
+background-color: #242E6B;
+width: 100%;
+background-position: top;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+h1, h2 {
+  font-weight: 400;
+  font-size: 100px;
+  color:white;
+}
+
+#title {
+  color: #FC8C93;
+  line-height: 50px;
+}
+
+#question {
+  display: inline;
+  color: #FFFFFF;
+}
+
+#my-canvas1,#my-canvas2,#my-canvas3 {
+  vertical-align: top;
+  display: inline;
+  border: 2px solid #FFFFFF;
+  border-radius: 5%;
+  margin-left: 10px;
+  cursor: crosshair;
+}
+
+.container {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.btn {
+    padding:20px;
+  margin: 10px;
+	background-color:#FFFFFF;
+	border-radius:20px;
+	cursor:pointer;
+	color:#242E6B;
+  line-height: 50px;
+	font-family:'Just Another Hand', cursive;
+	font-size:50px;
+  letter-spacing: 3px;
+	padding:13px 32px 0 32px;
+  text-align: center;
+	text-decoration:none;
+}
+
+.btn:hover {
+  background-color: yellow; 
+  color: white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+  <div class='container'>
+    <h1 id='title'>Human Verfication</h1>
+   
+        <h2 id='question'> Write <span id='n1'>3</span> <span id='n2'>2</span> <span id='n3'>4</span> </h2> 
+	  <br>
+  	
+    <canvas id='my-canvas1' width="150" height="150"></canvas>
+    &nbsp;&nbsp;
+    <canvas id='my-canvas2' width="150" height="150"></canvas>
+    &nbsp;&nbsp;
+    <canvas id='my-canvas3' width="150" height="150"></canvas>
+  </div>
+
+  <div class='container'>
+    <button  id='checkAnswer' class='btn' value='Check'>Login</button>
+  </div>
+
+
+   <script>
+    
+    loadModel();
+    prepareCanvas1();
+    prepareCanvas2();
+    prepareCanvas3();
+    nextQuestion();
+
+
+    document.getElementById('checkAnswer').addEventListener('click', function () {
+      checkAnswer();
+      clearCanvas();
+      nextQuestion();
+    });
+
+  </script>
+
+</body>
+
+</html>
