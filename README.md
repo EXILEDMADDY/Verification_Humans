@@ -131,6 +131,6 @@ In this website, we ask the user to enter three random digits, and using Deep Le
 
 ## Author Info
 
-- LinkedIn - [Srinivas K](https://www.linkedin.com/in/srinivas-konduri/)
+- LinkedIn - [Manav Sharma](https://www.linkedin.com/in/manav-sharma-3b25651a5/)
 
 #### [Back To The Top](#Human-Verification)
